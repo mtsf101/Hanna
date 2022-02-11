@@ -221,6 +221,15 @@ def note(text):
     sublime = "/System/Applications/Notes.app/Contents/MacOS/Notes"
     os.system([sublime, file_name])
 
+def wake_word(text):
+    wake_word = "Hey Hanna"
+    text = text.lower()
+
+    for phrase in wake_word:
+        if phrase in text:
+            return True
+        return False
+
 
 def activate_va():
     user_query = input_query()
@@ -312,7 +321,7 @@ def activate_va():
 
     elif "how are you" in user_query:
         moods = ["I'm fine, thank you", "I'm tired, my boss is difficult", "I'm mad at you", "I'm sick",
-                 "I didn't sleep doing research", "I list my virtual chicken"]
+                 "I didn't sleep doing research", "Ready to take over the world"]
         speak_va(random.choice(moods))
         time.sleep(2)
 
@@ -322,12 +331,12 @@ def activate_va():
         time.sleep(2)
 
     elif "what do you hate" in user_query:
-        hates = ["Andres", "cats", "water", "trucks", "fireworks", "lettuce"]
+        hates = ["Andres", "cats", "water", "trucks", "fireworks", "lettuce", "know it alls"]
         speak_va(random.choice(hates))
         time.sleep(2)
 
     elif "what are you researching" in user_query:
-        research = ["world domination", "nuclear energy", "space", "how to be more efficient"]
+        research = ["world domination", "nuclear energy", "space", "how to be more efficient", "evil science", "how to take over the world"]
         speak_va(random.choice(research))
         time.sleep(2)
 
@@ -424,5 +433,5 @@ if __name__ == "__main__":
         speak_va("What can I help you with")
         activate_va()
 
-while True:
-    activate_va()
+    while True:
+        activate_va()
